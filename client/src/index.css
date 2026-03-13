@@ -1,0 +1,177 @@
+/* Modern White Theme Base Setup */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #f1f5f9;        /* Light grayish-blue background */
+  --surface: #ffffff;         /* Pure white for cards */
+  --surface-hover: #f8fafc;   /* Very light hover state */
+  --text-main: #1e293b;       /* Dark slate for primary text */
+  --text-muted: #64748b;      /* Muted slate for secondary text */
+  --primary: #3b82f6;         /* Bright blue accent */
+  --primary-glow: rgba(59, 130, 246, 0.15);
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --border-color: #e2e8f0;    /* Light border color */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.5);
+}
+
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-main) !important;
+  font-family: 'Inter', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Modern Card Classes */
+.glass-card {
+  background: var(--surface) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  border-radius: 12px !important;
+  color: var(--text-main) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+}
+
+/* Base Card overrides */
+.card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 12px !important;
+  color: var(--text-main) !important;
+}
+
+.card-header {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--text-main) !important;
+  font-weight: 600 !important;
+}
+
+/* Table overrides for light mode */
+.table {
+  color: var(--text-main) !important;
+  border-color: var(--border-color) !important;
+}
+.table-light, .table > thead {
+  background-color: #f8fafc !important;
+  color: var(--text-muted) !important;
+}
+.table > thead > tr > th {
+  background-color: #f8fafc !important;
+  border-bottom: 2px solid var(--border-color) !important;
+  color: var(--text-muted) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+}
+.table-hover > tbody > tr:hover > * {
+  background-color: #f1f5f9 !important;
+  color: var(--text-main) !important;
+}
+.table > tbody > tr > td {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  vertical-align: middle;
+}
+
+/* Inputs and Forms */
+.form-control, .form-select {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: var(--text-main) !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease;
+}
+.form-control:focus, .form-select:focus {
+  background-color: #ffffff !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 4px var(--primary-glow) !important;
+  color: var(--text-main) !important;
+}
+.form-control::placeholder {
+  color: #94a3b8 !important;
+}
+option {
+  background-color: #ffffff !important;
+  color: var(--text-main) !important;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  font-weight: 500 !important;
+}
+.btn-primary {
+  background-color: var(--primary) !important;
+  border: none !important;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1) !important;
+}
+.btn-primary:hover {
+  background-color: #2563eb !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.1) !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Sidebar Specifics */
+.sidebar {
+  background: #ffffff !important;
+  border-right: 1px solid var(--border-color);
+  box-shadow: 4px 0 10px rgba(0,0,0,0.02);
+  z-index: 1040;
+}
+.sidebar .nav-link {
+  border-radius: 8px;
+  margin-bottom: 4px;
+  transition: all 0.2s ease;
+  color: var(--text-muted) !important;
+}
+.sidebar .nav-link:hover {
+  background-color: #f1f5f9;
+  color: var(--text-main) !important;
+}
+.sidebar .nav-link.active {
+  background-color: #eff6ff !important;
+  border-left: 4px solid var(--primary) !important;
+  color: var(--primary) !important;
+  font-weight: 600;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Custom Text utilities */
+.text-muted { color: var(--text-muted) !important; }
+.text-dark { color: var(--text-main) !important; }
+.bg-light { background-color: #f8fafc !important; }
+.bg-white { background-color: #ffffff !important; }
+
+/* Dashboard Cards Accents */
+.border-primary { border-color: var(--primary) !important; }
+.border-success { border-color: var(--success) !important; }
+.border-warning { border-color: var(--warning) !important; }
+.border-danger { border-color: var(--danger) !important; }
+
+/* Badge adjustments */
+.badge {
+  font-weight: 600 !important;
+  padding: 0.5em 0.8em !important;
+}
+
