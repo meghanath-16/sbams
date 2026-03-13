@@ -53,7 +53,8 @@ app.get('/api/status', (req, res) => {
   });
 });
 
-if (process.env.NODE_ENV !== 'production') {
+// For Render/Local: listen on port. For Vercel: export the app.
+if (process.env.VERCEL !== '1') {
   server.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
