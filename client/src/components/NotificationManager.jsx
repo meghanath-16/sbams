@@ -11,8 +11,10 @@ const NotificationManager = () => {
        setNotifications([]); // Clear notifications on logout
        return;
     }
-
-    const socket = io('http://localhost:5000');
+    
+    // Use the same URL as API for socket connection
+    const socketUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    const socket = io(socketUrl);
 
     socket.on('connect', () => {
       console.log('Connected to socket server');

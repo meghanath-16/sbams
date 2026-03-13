@@ -58,7 +58,8 @@ const ResidentDashboard = ({ user, token }) => {
     fetchResidentData();
     
     // Connect to Socket
-    const socket = io('http://localhost:5000');
+    const socketUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    const socket = io(socketUrl);
     
     // Join room if resident
     const roomId = user.assignedRooms?.[0];

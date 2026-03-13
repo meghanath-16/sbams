@@ -10,6 +10,10 @@ import Maintenance from './pages/Maintenance';
 import AdminLayout from './components/AdminLayout';
 import NotificationManager from './components/NotificationManager';
 import { fetchBackendStatus } from './services/api';
+import axios from 'axios';
+
+// Configure Axios Base URL for all requests
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || '';
 
 // Protected Route Component
 const PrivateRoute = ({ children }) => {
