@@ -12,7 +12,10 @@ const PORT = process.env.PORT || 5000;
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/sbams')
   .then(() => console.log('MongoDB connected successfully'))
-  .catch((err) => console.error('MongoDB connection error:', err));
+  .catch((err) => {
+    console.error('MongoDB connection error:', err);
+    console.log('TIP: Ensure your MongoDB Atlas IP Whitelist allows access (usually 0.0.0.0/0 for Render).');
+  });
 
 // Middleware
 app.use(cors());
